@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asmita Rawat | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #090d16;
+            --surface: #121826;
+            --surface-hover: #1b2336;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(37, 99, 235, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --text-gradient: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+            --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            --radius: 16px;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Neon Glow Background Elements */
+        .glow-1 {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glow-2 {
+            position: absolute;
+            top: 60%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Premium Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(9, 13, 22, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo{
+        
+            width:60px;
+        
+            height:60px;
+        
+            border-radius:50%;
+        
+            object-fit:cover;
+        
+            border:2px solid rgba(96,165,250,.3);
+        
+        }
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Container Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Landing Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 4rem;
+        }
+        .hero-photo{
+
+            margin-top: 50px;
+
+            margin-bottom:2rem;
+        
+        }
+        
+        .hero-photo img{
+        
+            width:150px;
+        
+            height:150px;
+        
+            border-radius:50%;
+        
+            object-fit:cover;
+        
+            border:4px solid rgba(96,165,250,.3);
+        
+            box-shadow:0 0 30px rgba(96,165,250,.25);
+        
+        }
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge i { font-size: 0.75rem; }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 600;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            max-width: 750px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        /* Premium Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Core Sections */
+        section { padding: 5rem 0 4rem 0; }
+
+        .section-header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* High-End Technical Skills Layout */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-group-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+
+        .skill-group-card:hover {
+            border-color: var(--border-glow);
+            background: var(--surface-hover);
+        }
+
+        .skill-group-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #60a5fa;
+        }
+
+        .skills-pill-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .skill-pill:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+        }
+
+        /* Enterprise Project Grid & Big Numbers */
+        .projects-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .pro-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height:100%;
+        }
+
+        .pro-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+
+        .pro-hero-metric {
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+        
+        .metric-value.blue { color: #60a5fa; }
+        .metric-value.purple { color: #c084fc; }
+        .metric-value.green { color: #34d399; }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: right;
+        }
+
+        .pro-content {
+            padding: 2.25rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .pro-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .pro-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .pro-details-list {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pro-details-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .pro-details-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .pro-tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-pill {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Academic Timeline Layout */
+        .edu-cert-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 968px) {
+            .edu-cert-split { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        .timeline-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-block h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-block p.subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Modern Contact Block */
+        .contact-banner {
+            background: linear-gradient(rgba(18, 24, 38, 0.95), rgba(18, 24, 38, 0.95)), radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent);
+            border: 1px solid var(--border);
+            padding: 4rem;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-banner h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-banner p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+        }
+
+        .contact-links-box {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .c-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .c-item i { color: #3b82f6; font-size: 1.25rem; }
+        .c-item:hover{
+        
+            color:#60a5fa;
+        
+            transform:translateY(-3px);
+        
+        }
+        
+        .c-item:hover i{
+        
+            color:#60a5fa;
+        
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #475569;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 6rem;
+            font-family: var(--font-mono);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+            <!-- <img src="asmita.jpeg" alt="Asmita Rawat" class="nav-logo"> -->
+        </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <section id="about" class="hero">
+            <div class="hero-photo"><img src="asmita.jpeg" alt="Asmita Rawat"></div>
+            <h1>Asmita Rawat</h1>
+            <h2>Aspiring Data Analyst | Python | SQL | Power BI | Tableau</h2>
+            <p>I am seeking opportunities in Data Analytics and Business Analytics where I can apply my analytical skills, data visualization expertise, and problem-solving abilities to contribute to organizational growth.</p>
+            
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">Explore My Projects <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Get In Touch</a>
+                <a href="Asmita_Rawat_Resume.pdf" download class="btn btn-primary"> <i class="fas fa-download"></i>Download Resume </a>
+
+            </div>
+        </section>
+        <section id="education">
+            <div class="section-header">
+                <h2>Education & Certifications</h2>
+                <p>
+                    Academic background and continuous learning journey in Data Analytics and Business Intelligence.
+                </p>
+            </div>
+            <div class="edu-cert-split">
+            
+                <!-- Education -->
+                <div>
+                    <h3 style="margin-bottom:1.5rem;color:#60a5fa;">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h3>
+            
+                    <div class="timeline-wrapper">
+            
+                        <div class="timeline-block">
+                            <div class="time-badge">2021 - 2025</div>
+            
+                            <h4>
+                                Bachelor of Technology (B.Tech)
+                            </h4>
+            
+                            <p class="subtitle">
+                                Computer Science & Engineering
+                            </p>
+            
+                            <p>
+                                Graphic Era Hill University
+                            </p>
+            
+                            <br>
+            
+                            <div class="score-indicator">
+                                <i class="fas fa-chart-line"></i>
+                                65.36%
+                            </div>
+                        </div>
+            
+                        <div class="timeline-block">
+                            <div class="time-badge">2021</div>
+            
+                            <h4>
+                                Senior Secondary (Class XII)
+                            </h4>
+            
+                            <p class="subtitle">
+                                Kendriya Vidyalaya IMA
+                            </p>
+            
+                            <div class="score-indicator">
+                                <i class="fas fa-star"></i>
+                                81.16%
+                            </div>
+                        </div>
+            
+                        <div class="timeline-block">
+                            <div class="time-badge">2019</div>
+            
+                            <h4>
+                                Secondary School (Class X)
+                            </h4>
+            
+                            <p class="subtitle">
+                                Kendriya Vidyalaya IMA
+                            </p>
+            
+                            <div class="score-indicator">
+                                <i class="fas fa-star"></i>
+                                87.66%
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+                <!-- Certifications -->
+                <div>
+                    <h3 style="margin-bottom:1.5rem;color:#60a5fa;">
+                        <i class="fas fa-certificate"></i>
+                        Certifications
+                    </h3>
+            
+                    <div class="timeline-wrapper">
+            
+                        <div class="timeline-block">
+            
+                            <div class="time-badge">
+                                In Progress • 2026
+                            </div>
+            
+                            <h4>
+                                Google Data Analytics Professional Certificate
+                            </h4>
+            
+                            <p class="subtitle">
+                                Coursera / Google
+                            </p>
+            
+                            <p>
+                                Learning Data Cleaning, Data Analysis, SQL,
+                                Tableau, Data Visualization and Business Analytics.
+                            </p>
+            
+                            <br>
+            
+                            <div class="score-indicator">
+                                <i class="fab fa-google"></i>
+                                Professional Certification
+                            </div>
+            
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>The tools and languages powering my automated data pipelines and analytics architecture.</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-group-card">
+                    <h3><i class="fas fa-code-branch"></i> Core Languages</h3>
+                    <div class="skills-pill-box">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-group-card">
+                    <h3><i class="fas fa-brain"></i> Analytics & ML</h3>
+                    <div class="skills-pill-box">
+                        <span class="skill-pill">Pandas</span>
+                        <span class="skill-pill">NumPy</span>
+                        <span class="skill-pill">Scikit-learn</span>
+                        <span class="skill-pill">EDA Engineering</span>
+                        <span class="skill-pill">Feature Manipulation</span>
+                        <span class="skill-pill">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="skill-group-card">
+                    <h3><i class="fas fa-chart-line"></i> Dynamic Dashboards</h3>
+                    <div class="skills-pill-box">
+                        <span class="skill-pill">Power BI (DAX)</span>
+                        <span class="skill-pill">Power Query</span>
+                        <span class="skill-pill">Tableau Matrix</span>
+                        <span class="skill-pill">Matplotlib</span>
+                        <span class="skill-pill">Seaborn Suite</span>
+                    </div>
+                </div>
+                <div class="skill-group-card">
+                    <h3><i class="fas fa-sliders-h"></i> Operational Platforms</h3>
+                    <div class="skills-pill-box">
+                        <span class="skill-pill">MySQL Engine</span>
+                        <span class="skill-pill">Advanced Excel</span>
+                        <span class="skill-pill">Jupyter Ecosystem</span>
+                        <span class="skill-pill">GitHub Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>
+                    Academic and personal projects focused on data analytics, business intelligence,
+                    machine learning, and recommendation systems.
+                </p>
+            </div>
+
+            <div class="projects-layout">
+
+    <!-- Project 1 -->
+    <div class="pro-card">
+        <div class="pro-hero-metric">
+            <div class="metric-value blue">$2.26M</div>
+            <div class="metric-label">
+                Revenue<br>Analyzed
+            </div>
+        </div>
+
+        <div class="pro-content">
+            <div class="pro-type">Power BI Dashboard</div>
+
+            <h3 class="pro-title">
+                Superstore Sales Dashboard
+            </h3>
+
+            <ul class="pro-details-list">
+                <li>Analyzed 9,994 orders and $2.26M revenue using Power BI.</li>
+
+                <li>Created interactive dashboards with KPI cards, trend analysis and sales insights.</li>
+
+                <li>Built custom DAX measures for Total Sales, Orders, Customers and Average Order Value.</li>
+
+                <li>Identified Technology as the highest revenue-generating category.</li>
+
+                <li>Discovered the West region contributed approximately 32% of total sales.</li>
+
+                <li>Generated actionable business insights for inventory planning and seasonal marketing.</li>
+            </ul>
+
+            <div class="pro-tech-row">
+                <span class="tech-pill">Power BI</span>
+                <span class="tech-pill">DAX</span>
+                <span class="tech-pill">Power Query</span>
+                <span class="tech-pill">Excel</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="pro-card">
+        <div class="pro-hero-metric">
+            <div class="metric-value purple">83%</div>
+            <div class="metric-label">
+                Model<br>Accuracy
+            </div>
+        </div>
+
+        <div class="pro-content">
+            <div class="pro-type">Machine Learning Project</div>
+
+            <h3 class="pro-title">
+                Heart Disease Prediction Model
+            </h3>
+
+            <ul class="pro-details-list">
+                <li>Developed a machine learning model using the UCI Heart Disease dataset.</li>
+
+                <li>Performed data cleaning, preprocessing and exploratory data analysis.</li>
+
+                <li>Handled missing values and outliers to improve dataset quality.</li>
+
+                <li>Implemented Logistic Regression and KNN classification models.</li>
+
+                <li>Compared model performance and achieved approximately 83% prediction accuracy.</li>
+
+                <li>Visualized insights using Matplotlib and Seaborn.</li>
+            </ul>
+
+            <div class="pro-tech-row">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Pandas</span>
+                <span class="tech-pill">NumPy</span>
+                <span class="tech-pill">Scikit-Learn</span>
+                <span class="tech-pill">Matplotlib</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="pro-card">
+        <div class="pro-hero-metric">
+            <div class="metric-value green">8800+</div>
+            <div class="metric-label">
+                Records<br>Processed
+            </div>
+        </div>
+
+        <div class="pro-content">
+            <div class="pro-type">Recommendation System</div>
+
+            <h3 class="pro-title">
+                NetReco – Netflix Recommendation System
+            </h3>
+
+            <ul class="pro-details-list">
+                <li>Built a content recommendation system using Netflix movie and TV show data.</li>
+
+                <li>Processed and analyzed more than 8,800 titles.</li>
+
+                <li>Performed feature engineering using metadata and content attributes.</li>
+
+                <li>Created a similarity-based recommendation engine.</li>
+
+                <li>Developed a modular workflow covering EDA, feature engineering and inference.</li>
+
+                <li>Generated Top-N recommendations with fast retrieval performance.</li>
+            </ul>
+
+            <div class="pro-tech-row">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Pandas</span>
+                <span class="tech-pill">NumPy</span>
+                <span class="tech-pill">Recommendation System</span>
+                <span class="tech-pill">Machine Learning</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+<section id="contact">
+
+<div class="contact-banner">
+
+    <span class="badge">
+        <i class="fas fa-paper-plane"></i>
+        Open To Opportunities
+    </span>
+
+    <h3>
+        Let's Build Something Meaningful With Data
+    </h3>
+
+    <p>
+        I'm actively seeking opportunities in Data Analytics, Business Analytics,
+        and Business Intelligence. Whether you have a role, project, internship,
+        or collaboration opportunity, I'd love to connect and discuss how I can contribute.
+    </p>
+
+    <div class="contact-links-box">
+
+        <a href="mailto:rawatasmita06@gmail.com" class="c-item">
+            <i class="fas fa-envelope"></i>
+            <span>Email Me</span>
+        </a>
+
+        <a href="tel:+918791102804" class="c-item">
+            <i class="fas fa-phone"></i>
+            <span>Call Me</span>
+        </a>
+
+        <a href="#" class="c-item">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </a>
+
+        <a href="#" class="c-item">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+        </a>
+
+        <a href="#" class="c-item">
+            <i class="fab fa-kaggle"></i>
+            <span>Kaggle</span>
+        </a>
+
+    </div>
+
+    <div style="margin-top:2rem;">
+
+        <a href="Asmita_Rawat_Resume.pdf"
+           download
+           class="btn btn-primary">
+
+            <i class="fas fa-download"></i>
+            Download Resume
+
+        </a>
+
+    </div>
+
+</div>
+</section>
+<footer>
+<div class="footer-container">
+
+    <div class="footer-logo">
+        Asmita Rawat
+    </div>
+
+    <p class="footer-text">
+        Data Analyst • Python • SQL • Power BI • Tableau
+    </p>
+
+    <div class="footer-social">
+
+        <a href="#" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-kaggle"></i>
+        </a>
+
+        <a href="mailto:rawatasmita06@gmail.com">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-copy">
+        © 2026 Asmita Rawat. All Rights Reserved.
+    </p>
+
+    <p class="footer-built">
+        Built with HTML, CSS & Data Passion 📊
+    </p>
+
+</div>
+</footer>
+
